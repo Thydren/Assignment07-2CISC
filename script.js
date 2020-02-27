@@ -23,7 +23,7 @@
 
 let balloon = document.getElementById("balloon")
 let currentSize = 100;
-function keyUpListener(event) {
+function keyDownListener(event) {
     if (event.key == "ArrowUp") {
         event.preventDefault();
         currentSize *= 1.1;
@@ -32,7 +32,15 @@ function keyUpListener(event) {
         event.preventDefault();
         currentSize *= .9
         balloon.style.fontSize = currentSize + "%";
+    } 
+    if (currentSize >= 500) {
+        balloon.textContent = "💥";
+        window.removeEventListener("keydown", keyDownListener);
     }
 }
-window.addEventListener("keyup", event => keyUpListener(event));
-window.addEventListener("keydown", event => keyDownListener(event));
+window.addEventListener("keydown", keyDownListener);
+
+
+
+
+
