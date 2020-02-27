@@ -19,3 +19,20 @@
 // function as expected. There are many ways to accomplish this task, but you will need
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
+
+
+let balloon = document.getElementById("balloon")
+let currentSize = 100;
+function keyUpListener(event) {
+    if (event.key == "ArrowUp") {
+        event.preventDefault();
+        currentSize *= 1.1;
+        balloon.style.fontSize = currentSize + "%";
+    } else if (event.key == "ArrowDown") {
+        event.preventDefault();
+        currentSize *= .9
+        balloon.style.fontSize = currentSize + "%";
+    }
+}
+window.addEventListener("keyup", event => keyUpListener(event));
+window.addEventListener("keydown", event => keyDownListener(event));
