@@ -39,8 +39,3 @@ function keyDownListener(event) {
     }
 }
 window.addEventListener("keydown", keyDownListener);
-
-
-
-
-
